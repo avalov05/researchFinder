@@ -1,0 +1,12 @@
+{
+  "name": "researchFinder",
+  "version": "1.0.0",
+  "description": "web scraper",
+  "main": "index.js",
+  "repository": "https://github.com/avalov05/researchFinder.git",
+  "author": "Anton Valov",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^23.3.1"
+  }
+}
