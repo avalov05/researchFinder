@@ -6,8 +6,17 @@ const main = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
-    await page.screenshot({path: "screenshot.png"});
-    await browser.close();
+    const allProfs = await page.evaluate(() => {
+        const profs = document.querySelectorAll("div.gsc_1usr");
+        return Array.from(profs).map((prof) => {
+            const title = prof.querySelector('h3').innerText;
+            const url = prof.querySelector('a').href;
+            return {title, url};
+        });
+    });
+
+    console.log(allProfs)
+    //await browser.close();
 }
 
 main();
